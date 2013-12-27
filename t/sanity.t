@@ -26,7 +26,6 @@ __DATA__
 --- http_config eval: $::HttpConfig
 --- config
     location /t {
-        error_log logs/error.log notice;
         content_by_lua '
             local wechat = require "resty.wechat"
             local token = "acayf"
@@ -44,16 +43,18 @@ __DATA__
         ';
     }
 
---- raw_request
+--- raw_request eval
 ["GET /t?signature=9c32c80661e38ff5f5bc88cad6f7195d7ad93824&echostr=5961398446273956311&timestamp=1387891159&nonce=1387996234 HTTP/1.0\r
-  User-Agent: Mozilla/4.0\r
-  Accept: */*\r
-  Host: 101.69.255.134\r
-  Pragma: no-cache\r
-  Connection: Keep-Alive\r"]
+User-Agent: Mozilla/4.0\r
+Accept: */*\r
+Host: 101.69.255.134\r
+Pragma: no-cache\r
+Connection: Keep-Alive\r\n\r\n"]
 
 --- response_body
 5961398446273956311
+
+--- abort
 
 --- error_log
 check signature success
