@@ -3,19 +3,27 @@ Name
 
 lua-resty-wechat
 
-微信公众平台lua开发包,细化各项接口操作,支持链式调用,欢迎Fork此项目
-
 Status
 ======
 
+项目还处在积极开发阶段,欢迎兴趣相投者一起参与开发
+
 Description
 ===========
+
+微信公众平台lua开发包,细化各项接口操作
 
 Synopsis
 ========
 
 TODO
 ====
+
+一期:
+
+二期:
+
+三期:
 
 Authors
 =======
