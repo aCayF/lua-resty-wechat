@@ -26,18 +26,18 @@ typedef unsigned char xmlChar;
 typedef enum {
     XML_ELEMENT_NODE=       1,
     XML_ATTRIBUTE_NODE=     2,
-    XML_TEXT_NODE=      3,
+    XML_TEXT_NODE=          3,
     XML_CDATA_SECTION_NODE= 4,
     XML_ENTITY_REF_NODE=    5,
     XML_ENTITY_NODE=        6,
-    XML_PI_NODE=        7,
+    XML_PI_NODE=            7,
     XML_COMMENT_NODE=       8,
     XML_DOCUMENT_NODE=      9,
     XML_DOCUMENT_TYPE_NODE= 10,
     XML_DOCUMENT_FRAG_NODE= 11,
     XML_NOTATION_NODE=      12,
     XML_HTML_DOCUMENT_NODE= 13,
-    XML_DTD_NODE=       14,
+    XML_DTD_NODE=           14,
     XML_ELEMENT_DECL=       15,
     XML_ATTRIBUTE_DECL=     16,
     XML_ENTITY_DECL=        17,
@@ -49,7 +49,7 @@ typedef enum {
 
 typedef xmlElementType xmlNsType;
 typedef struct _xmlNs xmlNs;
-typedef xmlNs *xmlNsPtr;                                                                                                                       
+typedef xmlNs *xmlNsPtr;
 struct _xmlNs {
     struct _xmlNs *next;
     xmlNsType type;
@@ -67,7 +67,7 @@ struct _xmlNode {
     const xmlChar *name;
     struct _xmlNode *children;
     struct _xmlNode *last;
-    struct _xmlNode *parent;                                                                                                                   
+    struct _xmlNode *parent;
     struct _xmlNode *next;
     struct _xmlNode *prev;
     struct _xmlDoc *doc;
@@ -124,7 +124,7 @@ local lib = ffi.load("xml2")
 local str_type = ffi.typeof("uint8_t[?]")
 
 
-local function _tohex(s)
+local function _to_hex(s)
     local len = #s * 2
     local buf = ffi_new(str_type, len)
     C.ngx_hex_dump(buf, s, #s)
@@ -138,18 +138,18 @@ local function _check_signature(self)
     local nonce = self.nonce
     local token = self.token
     local tmptab = {token, timestamp, nonce}
-    sort(tmptab) 
+    sort(tmptab)
 
     local tmpstr = concat(tmptab, "")
     --print("sorted string: ", tmpstr)
     tmpstr = sha1_bin(tmpstr)
-    tmpstr = _tohex(tmpstr)
+    tmpstr = _to_hex(tmpstr)
     --print("caculated digest: ", tmpstr)
 
     if tmpstr ~= signature then
         return nil, "fade signature"
     end
-    
+
     print("check signature success")
     return true
 end
@@ -161,7 +161,7 @@ function _M.valid(self)
     end
 
     --print("received echostr: ", self.echostr)
-    return _check_signature(self) 
+    return _check_signature(self)
 end
 
 
