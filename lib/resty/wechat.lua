@@ -83,6 +83,26 @@ void xmlCleanupParser(void);
 
 ]]
 
+local rcvmsgfmt = {
+    common  = {"tousername", "fromusername", "createtime", "msgtype" },
+    msgtype = {
+        text     = {"content", "msgid"},
+        image    = {"picurl", "mediaid", "msgid"},
+        voice    = {"mediaid", "format", {"recognition"}, "msgid"},
+        video    = {"mediaid", "thumbmediaid", "msgid"},
+        location = {"location_x", "location_y", "scale", "label", "msgid"},
+        link     = {"title", "description", "url", "msgid"},
+        event    = {"event"}
+    },
+    event   = {
+        subscribe   = {{"eventkey"}, {"ticket"}},
+        scan        = {"eventkey", "ticket"},
+        unsubscribe = { },
+        location    = {"latitude", "longitude", "precision"},
+        click       = {"eventkey"}
+    }
+}
+
 local mt = { __index = _M }
 
 local lib = ffi.load("xml2")
