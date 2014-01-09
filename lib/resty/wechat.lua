@@ -113,6 +113,60 @@ local keytable = {
     news   = {articlecount="", title="", description="", picurl="", url=""}
 }
 
+local sndmsgfmt = {
+            --{ "nodename", "childnodetype", { ... }, s=[true or false] }
+    common = {
+              {"tousername", "c"},
+              {"fromusername", "c"},
+              {"createtime", "t"},
+              {"msgtype", "c"}
+             },
+    text   = {{"content", "c"}},
+    image  = {
+              {"image", "e", {
+                              {"mediaid", "c"}
+                             }
+              }
+             },
+    voice  = {
+              {"mediaid", "e", {
+                                {"mediaid", "c"}
+                               }
+              }
+             },
+    video  = {
+              {"video", "e", {
+                              {"mediaid", "c"},
+                              {"title", "c", o=true},
+                              {"description", "c", o=true}
+                             }
+              }
+             },
+    music  = {
+              {"music", "e", {
+                              {"title", "c", o=true},
+                              {"description", "c", o=true},
+                              {"musicurl", "c", o=true},
+                              {"hqmusicurl", "c", o=true},
+                              {"thumbmediaid", "c"}
+                             }
+              }
+             },
+    news   = {
+              {"articlecount", "t"},
+              {"articles", "e", {
+                                 {"item", "e", {
+                                                {"title", "c", o=true},
+                                                {"description", "c", o=true},
+                                                {"picurl", "c", o=true},
+                                                {"url", "c", o=true}
+                                               }
+                                 }
+                                }
+              }
+             },
+}
+
 local mt = { __index = _M }
 
 local lib = ffi.load("xml2")
