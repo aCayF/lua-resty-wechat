@@ -103,16 +103,6 @@ local rcvmsgfmt = {
     }
 }
 
-local keytable = {
-    common = {tousername="", fromusername="", createtime="", msgtype=""},
-    text   = {content=""},
-    image  = {mediaid=""},
-    voice  = {mediaid=""},
-    video  = {mediaid="", title="", description=""},
-    music  = {title="", description="", musicurl="", hqmusicurl="", thumbmediaid=""},
-    news   = {articlecount="", title="", description="", picurl="", url=""}
-}
-
 local sndmsgfmt = {
             --{ "nodename", "childnodetype", { ... }, s=[true or false] }
     common = {
