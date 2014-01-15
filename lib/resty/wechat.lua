@@ -3,6 +3,8 @@
 
 local sort = table.sort
 local concat = table.concat
+local lower = string.lower
+local format = string.format
 local sha1_bin = ngx.sha1_bin
 local get_uri_args = ngx.req.get_uri_args
 local get_method = ngx.req.get_method
