@@ -6,6 +6,8 @@ local concat = table.concat
 local sha1_bin = ngx.sha1_bin
 local get_uri_args = ngx.req.get_uri_args
 local get_method = ngx.req.get_method
+local read_body = ngx.req.read_body
+local get_body_data = ngx.req.get_body_data
 local setmetatable = setmetatable
 local ffi = require "ffi"
 local ffi_new = ffi.new
@@ -354,13 +356,18 @@ function _M.new(self,token)
     local args = get_uri_args()
     local method = get_method()
 
+    read_body()
+    local body = get_body_data()
+
     return setmetatable ({
         signature = args.signature, --case insensitive
         timestamp = args.timestamp,
         nonce = args.nonce,
         echostr = args.echostr,
         token = token,
-        method = method
+        method = method,
+        body = body,
+        rcvmsg = {}
     }, mt)
 end
 
