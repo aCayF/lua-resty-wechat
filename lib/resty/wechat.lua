@@ -292,6 +292,10 @@ function _M.parse(self)
     local body = self.body
     local rcvmsg = self.rcvmsg
 
+    if not body then
+        return nil, "invalid request body"
+    end
+
     doc = lib.xmlReadMemory(body, #body, nil, nil, 0)
     if doc == nil then
         return nil, "invalid xml data"
