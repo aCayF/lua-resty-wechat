@@ -3,7 +3,7 @@
 use Test::Nginx::Socket::Lua;
 use Cwd qw(cwd);
 
-repeat_each(2);
+repeat_each(3);
 
 plan tests => repeat_each() * (3 * blocks());
 
@@ -42,7 +42,6 @@ __DATA__
             end
         ';
     }
-
 --- raw_request eval
 ["GET /t?signature=9c32c80661e38ff5f5bc88cad6f7195d7ad93824&echostr=5961398446273956311&timestamp=1387891159&nonce=1387996234 HTTP/1.0\r
 User-Agent: Mozilla/4.0\r
@@ -50,12 +49,10 @@ Accept: */*\r
 Host: 101.69.255.134\r
 Pragma: no-cache\r
 Connection: Keep-Alive\r\n\r\n"]
-
 --- response_body
 5961398446273956311
-
 --- abort
+--- no_error_log
+[error]
 
---- error_log
-check signature success
 
