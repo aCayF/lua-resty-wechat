@@ -10,6 +10,7 @@ local get_uri_args = ngx.req.get_uri_args
 local get_method = ngx.req.get_method
 local read_body = ngx.req.read_body
 local get_body_data = ngx.req.get_body_data
+local gsub = ngx.re.gsub
 local setmetatable = setmetatable
 local ffi = require "ffi"
 local ffi_new = ffi.new
@@ -364,6 +365,9 @@ function _M.new(self,token)
 
     read_body()
     local body = get_body_data()
+    if body then
+        body = gsub(body, "[\r\n]*", "", "i")
+    end
 
     return setmetatable ({
         signature = args.signature, --case insensitive
