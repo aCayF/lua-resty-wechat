@@ -33,7 +33,7 @@ __DATA__
 
             local ok, err = chat:valid();
             if not ok then 
-                ngx.say("valid failed: ", err);
+                ngx.say(err);
                 return
             end 
 
@@ -68,7 +68,7 @@ Connection: Keep-Alive\r\n\r\n"]
 
             local ok, err = chat:valid();
             if not ok then 
-                ngx.say("validing failed: ", err);
+                ngx.say(err);
                 return
             end 
 
@@ -78,7 +78,7 @@ Connection: Keep-Alive\r\n\r\n"]
 
             local ok, err = chat:parse();
             if not ok then 
-                ngx.say("parsing failed: ", err);
+                ngx.say(err);
                 return
             end 
 
@@ -127,7 +127,7 @@ msgtype=text
 
             local ok, err = chat:valid();
             if not ok then 
-                ngx.say("validing failed: ", err);
+                ngx.say(err);
                 return
             end 
 
@@ -137,7 +137,7 @@ msgtype=text
 
             local ok, err = chat:parse();
             if not ok then 
-                ngx.say("parsing failed: ", err);
+                ngx.say(err);
                 return
             end 
 
@@ -188,7 +188,7 @@ msgtype=image
 
             local ok, err = chat:valid();
             if not ok then 
-                ngx.say("validing failed: ", err);
+                ngx.say(err);
                 return
             end 
 
@@ -198,7 +198,7 @@ msgtype=image
 
             local ok, err = chat:parse();
             if not ok then 
-                ngx.say("parsing failed: ", err);
+                ngx.say(err);
                 return
             end 
 
@@ -251,7 +251,7 @@ msgtype=voice
 
             local ok, err = chat:valid();
             if not ok then 
-                ngx.say("validing failed: ", err);
+                ngx.say(err);
                 return
             end 
 
@@ -261,7 +261,7 @@ msgtype=voice
 
             local ok, err = chat:parse();
             if not ok then 
-                ngx.say("parsing failed: ", err);
+                ngx.say(err);
                 return
             end 
 
@@ -316,7 +316,7 @@ location_y=120.000000
 
             local ok, err = chat:valid();
             if not ok then 
-                ngx.say("validing failed: ", err);
+                ngx.say(err);
                 return
             end 
 
@@ -326,7 +326,7 @@ location_y=120.000000
 
             local ok, err = chat:parse();
             if not ok then 
-                ngx.say("parsing failed: ", err);
+                ngx.say(err);
                 return
             end 
 
@@ -379,7 +379,7 @@ msgtype=link
 
             local ok, err = chat:valid();
             if not ok then 
-                ngx.say("validing failed: ", err);
+                ngx.say(err);
                 return
             end 
 
@@ -389,7 +389,7 @@ msgtype=link
 
             local ok, err = chat:parse();
             if not ok then 
-                ngx.say("parsing failed: ", err);
+                ngx.say(err);
                 return
             end 
 
@@ -438,7 +438,7 @@ msgtype=event
 
             local ok, err = chat:valid();
             if not ok then 
-                ngx.say("validing failed: ", err);
+                ngx.say(err);
                 return
             end 
 
@@ -448,7 +448,7 @@ msgtype=event
 
             local ok, err = chat:parse();
             if not ok then 
-                ngx.say("parsing failed: ", err);
+                ngx.say(err);
                 return
             end 
 
