@@ -334,7 +334,7 @@ local function _check_signature(self)
     local tmptab = {token, timestamp, nonce}
     sort(tmptab)
 
-    local tmpstr = concat(tmptab, "")
+    local tmpstr = concat(tmptab)
     --print("sorted string: ", tmpstr)
     tmpstr = sha1_bin(tmpstr)
     tmpstr = _to_hex(tmpstr)
