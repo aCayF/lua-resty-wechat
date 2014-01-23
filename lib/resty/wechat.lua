@@ -169,6 +169,145 @@ local lib = ffi.load("xml2")
 local str_type = ffi.typeof("uint8_t[?]")
 
 
+local function _normalize_items(str)
+    str = gsub(str, "title[1-9]>", "title>", "i")
+    str = gsub(str, "description[1-9]>", "description>", "i")
+    str = gsub(str, "picurl[1-9]>", "picurl>", "i")
+    str = gsub(str, "url[1-9]>", "url>", "i")
+
+    return str
+end
+
+
+local function _insert_items(n)
+    local newsfmts = sndmsgfmt["news"]
+    local node = newsfmts[2]
+    local tb = node[3]
+
+    for i = 1, n do
+        local item = {"item", "e", {
+                                    {"title" .. i, "c", o=true},
+                                    {"description" .. i, "c", o=true},
+                                    {"picurl" .. i, "c", o=true},
+                                    {"url" .. i, "c", o=true}
+                                   }
+                     }
+        -- push
+        tb[#tb + 1] = item
+    end
+end
+
+
+local function _retrieve_content(sndmsg, fmt)
+    local name = fmt[1]
+    -- TODO
+    local content = sndmsg[name] and sndmsg[name] or ""
+    local optional = fmt.o
+
+    if not optional and content == "" then
+        return nil, "missing required argment -- " .. name
+    end
+
+    return content
+end
+
+
+local function _format_xml(sndmsg, fmts, str)
+    for i = 1, #fmts do
+        local fmt = fmts[i]
+        local name = fmt[1]
+        local t = fmt[2]
+        local subfmts = fmt[3]
+        local content, err
+
+        if t == "e" then
+            content, err = _format_xml(sndmsg, subfmts, "")
+            if err then
+               return nil, err
+            end
+
+            if content ~= "" then
+                content = format("<%s>\n", name) .. content .. format("</%s>\n", name)
+            end
+        end
+
+        if t == "t" then
+            content, err = _retrieve_content(sndmsg, fmt)
+            if err then
+               return nil, err
+            end
+
+            if content ~= "" then
+                content = format("<%s>%s</%s>\n", name, content, name)
+            end
+        end
+
+        if t == "c" then
+            content, err = _retrieve_content(sndmsg, fmt)
+            if err then
+               return nil, err
+            end
+
+            if content ~= "" then
+                content = format("<%s><![CDATA[%s]]></%s>\n", name, content, name)
+            end
+        end
+
+        str = str .. content
+    end
+
+    return str
+end
+
+
+function _M.build(self, sndmsg)
+    local msgtype = sndmsg.msgtype
+    local fmts = sndmsgfmt[msgtype]
+    local n = sndmsg.articlecount and tonumber(sndmsg.articlecount) or 0
+    local rcvmsg = self.rcvmsg
+    local stream
+
+    if n > 10 then
+        return nil, "invalid articlecount"
+    end
+
+    if not fmts then
+        return nil, "invalid msgtype"
+    end
+
+    if not rcvmsg.fromusername
+       or not rcvmsg.tousername then
+        return nil, "invalid recieve message"
+    end
+    sndmsg.tousername = rcvmsg.fromusername
+    sndmsg.fromusername = rcvmsg.tousername
+    -- TODO
+    sndmsg.createtime = rcvmsg.createtime
+
+    if n > 1 then
+        _insert_items(n)
+    end
+
+    stream = "<xml>"
+    stream, err = _format_xml(sndmsg, sndmsgfmt.common, stream)
+    if err then
+        return nil, err
+    end
+    stream, err = _format_xml(sndmsg, fmts, stream)
+    if err then
+        return nil, err
+    end
+    stream = stream .. "</xml>"
+
+    if n > 1 then
+        stream = _normalize_items(stream)
+    end
+
+    self.stream = stream
+    return true
+end
+
+
 local function _parse_key(nodePtr, key, rcvmsg)
     local node = nodePtr.node
     local name = ffi_str(node[0].name)
@@ -255,11 +394,11 @@ local function _parse_xml(node, rcvmsg)
     -- element node named xml is expected
     if node[0].type ~= lib.XML_ELEMENT_NODE
        or ffi_str(node[0].name) ~= "xml" then
-        return nil, "invalid xml title"
+        return nil, "parsing xml failed :invalid xml title"
     end
 
     if node[0].children == nil then
-        return nil, "invalid xml content"
+        return nil, "parsing xml failed :invalid xml content"
     end
 
     -- parse common components
@@ -268,19 +407,19 @@ local function _parse_xml(node, rcvmsg)
 
     ok, err = _parse_keytable(nodePtr, keytable, rcvmsg)
     if not ok then
-        return nil, "common parse failed :" .. err
+        return nil, "common parsing failed :" .. err
     end
 
     -- retrieve msgtype-specific keytable
     keytable, err = _retrieve_keytable(nodePtr, rcvmsg.msgtype, rcvmsg)
     if err then
-        return nil, "retrieve keytable failed :" .. err
+        return nil, "retrieving keytable failed :" .. err
     end
 
     -- parse msgtype-specific components
     ok, err = _parse_keytable(nodePtr, keytable, rcvmsg)
     if not ok then
-        return nil, "msgtype-specific parse failed :" .. err
+        return nil, "msgtype-specific parsing failed :" .. err
     end
 
     return true
