@@ -265,7 +265,7 @@ function _M.build(self, sndmsg)
     local fmts = sndmsgfmt[msgtype]
     local n = sndmsg.articlecount and tonumber(sndmsg.articlecount) or 0
     local rcvmsg = self.rcvmsg
-    local stream
+    local stream, err
 
     if n > 10 then
         return nil, "invalid articlecount"
@@ -443,7 +443,7 @@ function _M.parse(self)
 
     -- root node
     node = doc[0].children
-    ok, err = _parse_xml(node, rcvmsg)
+    local ok, err = _parse_xml(node, rcvmsg)
 
     -- cleanup used memory anyway
     lib.xmlFreeDoc(doc)
