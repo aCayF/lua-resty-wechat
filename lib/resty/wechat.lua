@@ -111,50 +111,50 @@ local rcvmsgfmt = {
 local sndmsgfmt = {
            --{ "nodename", "childnodetype", { ... }, s=[true or false] }
     common = {
-              {"tousername", "c"},
-              {"fromusername", "c"},
-              {"createtime", "t"},
-              {"msgtype", "c"}
+              {"ToUserName", "c"},
+              {"FromUserName", "c"},
+              {"CreateTime", "t"},
+              {"MsgType", "c"}
              },
-    text   = {{"content", "c"}},
+    text   = {{"Content", "c"}},
     image  = {
-              {"image", "e", {
-                              {"mediaid", "c"}
+              {"Image", "e", {
+                              {"MediaId", "c"}
                              }
               }
              },
     voice  = {
-              {"mediaid", "e", {
-                                {"mediaid", "c"}
+              {"Voice", "e", {
+                                {"MediaId", "c"}
                                }
               }
              },
     video  = {
-              {"video", "e", {
-                              {"mediaid", "c"},
-                              {"title", "c", o=true},
-                              {"description", "c", o=true}
+              {"Video", "e", {
+                              {"MediaId", "c"},
+                              {"Title", "c", o=true},
+                              {"Description", "c", o=true}
                              }
               }
              },
     music  = {
-              {"music", "e", {
-                              {"title", "c", o=true},
-                              {"description", "c", o=true},
-                              {"musicurl", "c", o=true},
-                              {"hqmusicurl", "c", o=true},
-                              {"thumbmediaid", "c"}
+              {"Music", "e", {
+                              {"Title", "c", o=true},
+                              {"Description", "c", o=true},
+                              {"MusicUrl", "c", o=true},
+                              {"HQMusicUrl", "c", o=true},
+                              {"ThumbMediaId", "c"}
                              }
               }
              },
     news   = {
-              {"articlecount", "t"},
-              {"articles", "e", {
+              {"ArticleCount", "t"},
+              {"Articles", "e", {
                                  {"item", "e", {
-                                                {"title", "c", o=true},
-                                                {"description", "c", o=true},
-                                                {"picurl", "c", o=true},
-                                                {"url", "c", o=true}
+                                                {"Title", "c", o=true},
+                                                {"Description", "c", o=true},
+                                                {"PicUrl", "c", o=true},
+                                                {"Url", "c", o=true}
                                                }
                                  }
                                 }
@@ -170,10 +170,10 @@ local str_type = ffi.typeof("uint8_t[?]")
 
 
 local function _normalize_items(str)
-    str = gsub(str, "title[1-9]>", "title>", "i")
-    str = gsub(str, "description[1-9]>", "description>", "i")
-    str = gsub(str, "picurl[1-9]>", "picurl>", "i")
-    str = gsub(str, "url[1-9]>", "url>", "i")
+    str = gsub(str, "Title[1-9]>", "Title>", "i")
+    str = gsub(str, "Description[1-9]>", "Description>", "i")
+    str = gsub(str, "PicUrl[1-9]>", "PicUrl>", "i")
+    str = gsub(str, "Url[1-9]>", "Url>", "i")
 
     return str
 end
@@ -186,10 +186,10 @@ local function _insert_items(n)
 
     for i = 1, n do
         local item = {"item", "e", {
-                                    {"title" .. i, "c", o=true},
-                                    {"description" .. i, "c", o=true},
-                                    {"picurl" .. i, "c", o=true},
-                                    {"url" .. i, "c", o=true}
+                                    {"Title" .. i, "c", o=true},
+                                    {"Description" .. i, "c", o=true},
+                                    {"PicUrl" .. i, "c", o=true},
+                                    {"Url" .. i, "c", o=true}
                                    }
                      }
         -- push
