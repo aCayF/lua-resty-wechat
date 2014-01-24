@@ -139,11 +139,11 @@ local sndmsgfmt = {
              },
     music  = {
               {"Music", "e", {
-                              {"Title", "c", o=true},
-                              {"Description", "c", o=true},
-                              {"MusicUrl", "c", o=true},
-                              {"HQMusicUrl", "c", o=true},
-                              {"ThumbMediaId", "c"}
+                              {"Title", "c"},
+                              {"Description", "c"},
+                              {"MusicUrl", "c"},
+                              {"HQMusicUrl", "c"},
+                              {"ThumbMediaId", "c", o=true}
                              }
               }
              },
