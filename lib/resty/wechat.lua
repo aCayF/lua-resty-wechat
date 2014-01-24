@@ -170,10 +170,10 @@ local str_type = ffi.typeof("uint8_t[?]")
 
 
 local function _normalize_items(str)
-    str = gsub(str, "Title[1-9]>", "Title>", "i")
-    str = gsub(str, "Description[1-9]>", "Description>", "i")
-    str = gsub(str, "PicUrl[1-9]>", "PicUrl>", "i")
-    str = gsub(str, "Url[1-9]>", "Url>", "i")
+    str = gsub(str, "Title[1-9]>", "Title>")
+    str = gsub(str, "Description[1-9]>", "Description>")
+    str = gsub(str, "PicUrl[1-9]>", "PicUrl>")
+    str = gsub(str, "Url[1-9]>", "Url>")
 
     return str
 end
