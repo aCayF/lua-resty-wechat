@@ -490,7 +490,7 @@ end
 
 
 function _M.valid(self)
-    if not self.echostr then
+    if self.method == "GET" and not self.echostr then
         return nil, "missing echostr"
     end
 
