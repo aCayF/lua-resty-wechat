@@ -184,7 +184,7 @@ local function _insert_items(n)
     local node = newsfmts[2]
     local tb = node[3]
 
-    for i = 1, n do
+    for i = 1, n - 1 do
         local item = {"item", "e", {
                                     {"Title" .. i, "c", o=true},
                                     {"Description" .. i, "c", o=true},
