@@ -200,6 +200,7 @@ end
 
 local function _retrieve_content(sndmsg, fmt)
     local name = fmt[1]
+    name = lower(name)
     -- TODO
     local content = sndmsg[name] and sndmsg[name] or ""
     local optional = fmt.o
