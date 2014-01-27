@@ -109,7 +109,7 @@ local rcvmsgfmt = {
 }
 
 local sndmsgfmt = {
-           --{ "nodename", "childnodetype", { ... }, s=[true or false] }
+           --{ "nodename", "childnodetype", { ... }, [o=true] }
     common = {
               {"ToUserName", "c"},
               {"FromUserName", "c"},
