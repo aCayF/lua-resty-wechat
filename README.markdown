@@ -13,6 +13,13 @@ Description
 
 微信公众平台lua开发包,细化各项接口操作
 
+Requirements
+========
+
+[ngx_lua](https://github.com/chaoslawful/lua-nginx-module),
+[libxml2](http://www.xmlsoft.org/),
+[LuaJIT](http://luajit.org)
+
 Synopsis
 ========
 
