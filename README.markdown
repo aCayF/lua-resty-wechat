@@ -41,7 +41,7 @@ Copyright and License
 
 This module is licensed under the BSD license.
 
-Copyright (C) 2012, by aCayF (潘力策) <plc1989@gmail.com>.
+Copyright (C) 2013-2014, by aCayF (潘力策) <plc1989@gmail.com>.
 
 All rights reserved.
 
