@@ -23,6 +23,37 @@ Requirements
 Synopsis
 ========
 
+```lua
+    lua_package_path "/path/to/lua-resty-wechat/lib/?.lua;;";
+
+    server {
+        location /test {
+            content_by_lua '
+                local wechat = require "resty.wechat"
+                local token = "acayf"
+                local chat = wechat:new(token)
+
+                local ok, err = chat:valid();
+                if not ok then
+                    print(err);
+                    return
+                end
+
+                if chat.method == "GET" then
+                    ngx.say(chat.echostr)
+                    return
+                end
+
+                local ok, err = chat:parse();
+                if not ok then
+                    print(err);
+                    return
+                end
+            ';
+        }
+    }
+```
+
 TODO
 ====
 
