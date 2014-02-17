@@ -30,8 +30,9 @@ __DATA__
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
+            local ok, err
 
-            local ok, err = chat:valid();
+            ok, err = chat:valid();
             if not ok then
                 print(err);
                 return
@@ -65,8 +66,9 @@ Connection: Keep-Alive\r\n\r\n"]
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
+            local ok, err
 
-            local ok, err = chat:valid();
+            ok, err = chat:valid();
             if not ok then
                 print(err);
                 return
@@ -76,7 +78,7 @@ Connection: Keep-Alive\r\n\r\n"]
                 ngx.print(chat.echostr)
             end
 
-            local ok, err = chat:parse();
+            ok, err = chat:parse();
             if not ok then
                 print(err);
                 return
@@ -124,8 +126,9 @@ msgtype=text
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
+            local ok, err
 
-            local ok, err = chat:valid();
+            ok, err = chat:valid();
             if not ok then
                 print(err);
                 return
@@ -135,7 +138,7 @@ msgtype=text
                 ngx.print(chat.echostr)
             end
 
-            local ok, err = chat:parse();
+            ok, err = chat:parse();
             if not ok then
                 print(err);
                 return
@@ -185,8 +188,9 @@ msgtype=image
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
+            local ok, err
 
-            local ok, err = chat:valid();
+            ok, err = chat:valid();
             if not ok then
                 print(err);
                 return
@@ -196,7 +200,7 @@ msgtype=image
                 ngx.print(chat.echostr)
             end
 
-            local ok, err = chat:parse();
+            ok, err = chat:parse();
             if not ok then
                 print(err);
                 return
@@ -248,8 +252,9 @@ msgtype=voice
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
+            local ok, err
 
-            local ok, err = chat:valid();
+            ok, err = chat:valid();
             if not ok then
                 print(err);
                 return
@@ -259,7 +264,7 @@ msgtype=voice
                 ngx.print(chat.echostr)
             end
 
-            local ok, err = chat:parse();
+            ok, err = chat:parse();
             if not ok then
                 print(err);
                 return
@@ -309,8 +314,9 @@ msgtype=video
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
+            local ok, err
 
-            local ok, err = chat:valid();
+            ok, err = chat:valid();
             if not ok then
                 print(err);
                 return
@@ -320,7 +326,7 @@ msgtype=video
                 ngx.print(chat.echostr)
             end
 
-            local ok, err = chat:parse();
+            ok, err = chat:parse();
             if not ok then
                 print(err);
                 return
@@ -374,8 +380,9 @@ location_y=120.000000
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
+            local ok, err
 
-            local ok, err = chat:valid();
+            ok, err = chat:valid();
             if not ok then
                 print(err);
                 return
@@ -385,7 +392,7 @@ location_y=120.000000
                 ngx.print(chat.echostr)
             end
 
-            local ok, err = chat:parse();
+            ok, err = chat:parse();
             if not ok then
                 print(err);
                 return
@@ -437,8 +444,9 @@ msgtype=link
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
+            local ok, err
 
-            local ok, err = chat:valid();
+            ok, err = chat:valid();
             if not ok then
                 print(err);
                 return
@@ -448,7 +456,7 @@ msgtype=link
                 ngx.print(chat.echostr)
             end
 
-            local ok, err = chat:parse();
+            ok, err = chat:parse();
             if not ok then
                 print(err);
                 return
@@ -496,8 +504,9 @@ msgtype=event
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
+            local ok, err
 
-            local ok, err = chat:valid();
+            ok, err = chat:valid();
             if not ok then
                 print(err);
                 return
@@ -507,7 +516,7 @@ msgtype=event
                 ngx.print(chat.echostr)
             end
 
-            local ok, err = chat:parse();
+            ok, err = chat:parse();
             if not ok then
                 print(err);
                 return
@@ -555,8 +564,9 @@ msgtype=event
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
+            local ok, err
 
-            local ok, err = chat:valid();
+            ok, err = chat:valid();
             if not ok then
                 print(err);
                 return
@@ -567,7 +577,7 @@ msgtype=event
                 return
             end
 
-            local ok, err = chat:parse();
+            ok, err = chat:parse();
             if not ok then
                 print(err);
                 return
@@ -575,7 +585,7 @@ msgtype=event
 
             local rcvmsg = chat.rcvmsg
             local sndmsg = {msgtype = "text", content = rcvmsg.content}
-            local ok, err = chat:build(sndmsg);
+            ok, err = chat:build(sndmsg);
             if not ok then
                 print("building message failed :" .. err);
                 return
@@ -621,8 +631,9 @@ Connection: Keep-Alive\r\n\r\n".
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
+            local ok, err
 
-            local ok, err = chat:valid();
+            ok, err = chat:valid();
             if not ok then
                 print(err);
                 return
@@ -633,7 +644,7 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            local ok, err = chat:parse();
+            ok, err = chat:parse();
             if not ok then
                 print(err);
                 return
@@ -641,7 +652,7 @@ Connection: Keep-Alive\r\n\r\n".
 
             local rcvmsg = chat.rcvmsg
             local sndmsg = {msgtype = "image", mediaid = rcvmsg.mediaid}
-            local ok, err = chat:build(sndmsg);
+            ok, err = chat:build(sndmsg);
             if not ok then
                 print("building message failed :" .. err);
                 return
@@ -690,8 +701,9 @@ Connection: Keep-Alive\r\n\r\n".
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
+            local ok, err
 
-            local ok, err = chat:valid();
+            ok, err = chat:valid();
             if not ok then
                 print(err);
                 return
@@ -702,7 +714,7 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            local ok, err = chat:parse();
+            ok, err = chat:parse();
             if not ok then
                 print(err);
                 return
@@ -710,7 +722,7 @@ Connection: Keep-Alive\r\n\r\n".
 
             local rcvmsg = chat.rcvmsg
             local sndmsg = {msgtype = "voice", mediaid = rcvmsg.mediaid}
-            local ok, err = chat:build(sndmsg);
+            ok, err = chat:build(sndmsg);
             if not ok then
                 print("building message failed :" .. err);
                 return
@@ -760,8 +772,9 @@ Connection: Keep-Alive\r\n\r\n".
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
+            local ok, err
 
-            local ok, err = chat:valid();
+            ok, err = chat:valid();
             if not ok then
                 print(err);
                 return
@@ -772,7 +785,7 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            local ok, err = chat:parse();
+            ok, err = chat:parse();
             if not ok then
                 print(err);
                 return
@@ -783,7 +796,7 @@ Connection: Keep-Alive\r\n\r\n".
                             mediaid = "cLoswtrpaMwdEfYRChivdajclcZULGMJ0J8a9M8W5_3tltrV23qkBm2sNanZIbwU",
                             title = "title",
                             description = "description"}
-            local ok, err = chat:build(sndmsg);
+            ok, err = chat:build(sndmsg);
             if not ok then
                 print("building message failed :" .. err);
                 return
@@ -831,8 +844,9 @@ Connection: Keep-Alive\r\n\r\n".
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
+            local ok, err
 
-            local ok, err = chat:valid();
+            ok, err = chat:valid();
             if not ok then
                 print(err);
                 return
@@ -843,7 +857,7 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            local ok, err = chat:parse();
+            ok, err = chat:parse();
             if not ok then
                 print(err);
                 return
@@ -854,7 +868,7 @@ Connection: Keep-Alive\r\n\r\n".
                             description = "description",
                             musicurl = "http://mp3.com/test.mp3",
                             hqmusicurl = "http://mp3.com/test.mp3"}
-            local ok, err = chat:build(sndmsg);
+            ok, err = chat:build(sndmsg);
             if not ok then
                 print("building message failed :" .. err);
                 return
@@ -907,8 +921,9 @@ Connection: Keep-Alive\r\n\r\n".
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
+            local ok, err
 
-            local ok, err = chat:valid();
+            ok, err = chat:valid();
             if not ok then
                 print(err);
                 return
@@ -919,7 +934,7 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            local ok, err = chat:parse();
+            ok, err = chat:parse();
             if not ok then
                 print(err);
                 return
@@ -928,7 +943,7 @@ Connection: Keep-Alive\r\n\r\n".
             local rcvmsg = chat.rcvmsg
             local sndmsg = {msgtype = "news", articlecount = 1,
                             title = "title",  picurl = "picurl", url = "url"}
-            local ok, err = chat:build(sndmsg);
+            ok, err = chat:build(sndmsg);
             if not ok then
                 print("building message failed :" .. err);
                 return
@@ -981,8 +996,9 @@ Connection: Keep-Alive\r\n\r\n".
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
+            local ok, err
 
-            local ok, err = chat:valid();
+            ok, err = chat:valid();
             if not ok then
                 print(err);
                 return
@@ -993,7 +1009,7 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            local ok, err = chat:parse();
+            ok, err = chat:parse();
             if not ok then
                 print(err);
                 return
@@ -1003,7 +1019,7 @@ Connection: Keep-Alive\r\n\r\n".
             local sndmsg = {msgtype = "news", articlecount = 2,
                             title = "title",  picurl = "picurl", url = "url",
                             title1 = "title1",  picurl1 = "picurl1", url1 = "url1"}
-            local ok, err = chat:build(sndmsg);
+            ok, err = chat:build(sndmsg);
             if not ok then
                 print("building message failed :" .. err);
                 return
@@ -1061,8 +1077,9 @@ Connection: Keep-Alive\r\n\r\n".
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
+            local ok, err
 
-            local ok, err = chat:valid();
+            ok, err = chat:valid();
             if not ok then
                 print(err);
                 return
@@ -1073,7 +1090,7 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            local ok, err = chat:parse();
+            ok, err = chat:parse();
             if not ok then
                 print(err);
                 return
@@ -1084,7 +1101,7 @@ Connection: Keep-Alive\r\n\r\n".
                             title = "title",  picurl = "picurl", url = "url",
                             title1 = "title1",  picurl1 = "picurl1", url1 = "url1",
                             title2 = "title2",  picurl2 = "picurl2", url2 = "url2"}
-            local ok, err = chat:build(sndmsg);
+            ok, err = chat:build(sndmsg);
             if not ok then
                 print("building message failed :" .. err);
                 return
