@@ -33,12 +33,12 @@ __DATA__
 
             local ok, err = chat:valid();
             if not ok then
-                ngx.say(err);
+                print(err);
                 return
             end
 
             if chat.method == "GET" then
-                ngx.say(chat.echostr)
+                ngx.print(chat.echostr)
             end
         ';
     }
@@ -49,7 +49,7 @@ Accept: */*\r
 Host: 101.69.255.134\r
 Pragma: no-cache\r
 Connection: Keep-Alive\r\n\r\n"]
---- response_body
+--- response_body chop
 5961398446273956311
 --- abort
 --- no_error_log
@@ -68,17 +68,17 @@ Connection: Keep-Alive\r\n\r\n"]
 
             local ok, err = chat:valid();
             if not ok then
-                ngx.say(err);
+                print(err);
                 return
             end
 
             if chat.method == "GET" then
-                ngx.say(chat.echostr)
+                ngx.print(chat.echostr)
             end
 
             local ok, err = chat:parse();
             if not ok then
-                ngx.say(err);
+                print(err);
                 return
             end
 
@@ -127,17 +127,17 @@ msgtype=text
 
             local ok, err = chat:valid();
             if not ok then
-                ngx.say(err);
+                print(err);
                 return
             end
 
             if chat.method == "GET" then
-                ngx.say(chat.echostr)
+                ngx.print(chat.echostr)
             end
 
             local ok, err = chat:parse();
             if not ok then
-                ngx.say(err);
+                print(err);
                 return
             end
 
@@ -188,17 +188,17 @@ msgtype=image
 
             local ok, err = chat:valid();
             if not ok then
-                ngx.say(err);
+                print(err);
                 return
             end
 
             if chat.method == "GET" then
-                ngx.say(chat.echostr)
+                ngx.print(chat.echostr)
             end
 
             local ok, err = chat:parse();
             if not ok then
-                ngx.say(err);
+                print(err);
                 return
             end
 
@@ -251,17 +251,17 @@ msgtype=voice
 
             local ok, err = chat:valid();
             if not ok then
-                ngx.say(err);
+                print(err);
                 return
             end
 
             if chat.method == "GET" then
-                ngx.say(chat.echostr)
+                ngx.print(chat.echostr)
             end
 
             local ok, err = chat:parse();
             if not ok then
-                ngx.say(err);
+                print(err);
                 return
             end
 
@@ -312,17 +312,17 @@ msgtype=video
 
             local ok, err = chat:valid();
             if not ok then
-                ngx.say(err);
+                print(err);
                 return
             end
 
             if chat.method == "GET" then
-                ngx.say(chat.echostr)
+                ngx.print(chat.echostr)
             end
 
             local ok, err = chat:parse();
             if not ok then
-                ngx.say(err);
+                print(err);
                 return
             end
 
@@ -377,17 +377,17 @@ location_y=120.000000
 
             local ok, err = chat:valid();
             if not ok then
-                ngx.say(err);
+                print(err);
                 return
             end
 
             if chat.method == "GET" then
-                ngx.say(chat.echostr)
+                ngx.print(chat.echostr)
             end
 
             local ok, err = chat:parse();
             if not ok then
-                ngx.say(err);
+                print(err);
                 return
             end
 
@@ -440,17 +440,17 @@ msgtype=link
 
             local ok, err = chat:valid();
             if not ok then
-                ngx.say(err);
+                print(err);
                 return
             end
 
             if chat.method == "GET" then
-                ngx.say(chat.echostr)
+                ngx.print(chat.echostr)
             end
 
             local ok, err = chat:parse();
             if not ok then
-                ngx.say(err);
+                print(err);
                 return
             end
 
@@ -499,17 +499,17 @@ msgtype=event
 
             local ok, err = chat:valid();
             if not ok then
-                ngx.say(err);
+                print(err);
                 return
             end
 
             if chat.method == "GET" then
-                ngx.say(chat.echostr)
+                ngx.print(chat.echostr)
             end
 
             local ok, err = chat:parse();
             if not ok then
-                ngx.say(err);
+                print(err);
                 return
             end
 
@@ -563,7 +563,7 @@ msgtype=event
             end
 
             if chat.method == "GET" then
-                ngx.say(chat.echostr)
+                ngx.print(chat.echostr)
                 return
             end
 
@@ -629,7 +629,7 @@ Connection: Keep-Alive\r\n\r\n".
             end
 
             if chat.method == "GET" then
-                ngx.say(chat.echostr)
+                ngx.print(chat.echostr)
                 return
             end
 
@@ -698,7 +698,7 @@ Connection: Keep-Alive\r\n\r\n".
             end
 
             if chat.method == "GET" then
-                ngx.say(chat.echostr)
+                ngx.print(chat.echostr)
                 return
             end
 
@@ -768,7 +768,7 @@ Connection: Keep-Alive\r\n\r\n".
             end
 
             if chat.method == "GET" then
-                ngx.say(chat.echostr)
+                ngx.print(chat.echostr)
                 return
             end
 
@@ -839,7 +839,7 @@ Connection: Keep-Alive\r\n\r\n".
             end
 
             if chat.method == "GET" then
-                ngx.say(chat.echostr)
+                ngx.print(chat.echostr)
                 return
             end
 
@@ -915,7 +915,7 @@ Connection: Keep-Alive\r\n\r\n".
             end
 
             if chat.method == "GET" then
-                ngx.say(chat.echostr)
+                ngx.print(chat.echostr)
                 return
             end
 
@@ -989,7 +989,7 @@ Connection: Keep-Alive\r\n\r\n".
             end
 
             if chat.method == "GET" then
-                ngx.say(chat.echostr)
+                ngx.print(chat.echostr)
                 return
             end
 
@@ -1069,7 +1069,7 @@ Connection: Keep-Alive\r\n\r\n".
             end
 
             if chat.method == "GET" then
-                ngx.say(chat.echostr)
+                ngx.print(chat.echostr)
                 return
             end
 
