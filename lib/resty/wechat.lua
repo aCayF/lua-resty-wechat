@@ -17,6 +17,8 @@ local ffi_new = ffi.new
 local ffi_str = ffi.string
 local C = ffi.C
 local print = print
+local ngx_print = ngx.print
+local ngx_flush = ngx.flush
 
 
 local _M = { _VERSION = '0.0.1' }
@@ -261,7 +263,7 @@ local function _format_xml(sndmsg, fmts, str)
 end
 
 
-function _M.build(self, sndmsg)
+function _M.reply(self, sndmsg)
     local msgtype = sndmsg.msgtype
     local fmts = sndmsgfmt[msgtype]
     local n = sndmsg.articlecount and tonumber(sndmsg.articlecount) or 0
@@ -304,6 +306,8 @@ function _M.build(self, sndmsg)
         stream = _normalize_items(stream)
     end
 
+    ngx_print(stream)
+    ngx_flush()
     self.stream = stream
     return true
 end
