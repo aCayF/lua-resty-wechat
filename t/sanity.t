@@ -556,7 +556,7 @@ msgtype=event
 
 
 
-=== TEST 13: build text
+=== TEST 13: reply text
 --- http_config eval: $::HttpConfig
 --- config
     location /t {
@@ -585,13 +585,10 @@ msgtype=event
 
             local rcvmsg = chat.rcvmsg
             local sndmsg = {msgtype = "text", content = rcvmsg.content}
-            ok, err = chat:build(sndmsg)
+            ok, err = chat:reply(sndmsg)
             if not ok then
-                print("building message failed :" .. err)
-                return
+                print("replying message failed :" .. err)
             end
-
-            ngx.print(chat.stream)
         ';
     }
 --- raw_request eval
@@ -623,7 +620,7 @@ Connection: Keep-Alive\r\n\r\n".
 
 
 
-=== TEST 14: build image
+=== TEST 14: reply image
 --- http_config eval: $::HttpConfig
 --- config
     location /t {
@@ -652,13 +649,10 @@ Connection: Keep-Alive\r\n\r\n".
 
             local rcvmsg = chat.rcvmsg
             local sndmsg = {msgtype = "image", mediaid = rcvmsg.mediaid}
-            ok, err = chat:build(sndmsg)
+            ok, err = chat:reply(sndmsg)
             if not ok then
-                print("building message failed :" .. err)
-                return
+                print("replying message failed :" .. err)
             end
-
-            ngx.print(chat.stream)
         ';
     }
 --- raw_request eval
@@ -693,7 +687,7 @@ Connection: Keep-Alive\r\n\r\n".
 
 
 
-=== TEST 15: build voice
+=== TEST 15: reply voice
 --- http_config eval: $::HttpConfig
 --- config
     location /t {
@@ -722,13 +716,10 @@ Connection: Keep-Alive\r\n\r\n".
 
             local rcvmsg = chat.rcvmsg
             local sndmsg = {msgtype = "voice", mediaid = rcvmsg.mediaid}
-            ok, err = chat:build(sndmsg)
+            ok, err = chat:reply(sndmsg)
             if not ok then
-                print("building message failed :" .. err)
-                return
+                print("replying message failed :" .. err)
             end
-
-            ngx.print(chat.stream)
         ';
     }
 --- raw_request eval
@@ -764,7 +755,7 @@ Connection: Keep-Alive\r\n\r\n".
 
 
 
-=== TEST 16: build video
+=== TEST 16: reply video
 --- http_config eval: $::HttpConfig
 --- config
     location /t {
@@ -796,13 +787,10 @@ Connection: Keep-Alive\r\n\r\n".
                             mediaid = "cLoswtrpaMwdEfYRChivdajclcZULGMJ0J8a9M8W5_3tltrV23qkBm2sNanZIbwU",
                             title = "title",
                             description = "description"}
-            ok, err = chat:build(sndmsg)
+            ok, err = chat:reply(sndmsg)
             if not ok then
-                print("building message failed :" .. err)
-                return
+                print("replying message failed :" .. err)
             end
-
-            ngx.print(chat.stream)
         ';
     }
 --- raw_request eval
@@ -836,7 +824,7 @@ Connection: Keep-Alive\r\n\r\n".
 </xml>
 --- no_error_log
 [error]
-=== TEST 17: build music
+=== TEST 17: reply music
 --- http_config eval: $::HttpConfig
 --- config
     location /t {
@@ -868,13 +856,10 @@ Connection: Keep-Alive\r\n\r\n".
                             description = "description",
                             musicurl = "http://mp3.com/test.mp3",
                             hqmusicurl = "http://mp3.com/test.mp3"}
-            ok, err = chat:build(sndmsg)
+            ok, err = chat:reply(sndmsg)
             if not ok then
-                print("building message failed :" .. err)
-                return
+                print("replying message failed :" .. err)
             end
-
-            ngx.print(chat.stream)
         ';
     }
 --- raw_request eval
@@ -913,7 +898,7 @@ Connection: Keep-Alive\r\n\r\n".
 
 
 
-=== TEST 18: build news 1
+=== TEST 18: reply news 1
 --- http_config eval: $::HttpConfig
 --- config
     location /t {
@@ -943,13 +928,10 @@ Connection: Keep-Alive\r\n\r\n".
             local rcvmsg = chat.rcvmsg
             local sndmsg = {msgtype = "news", articlecount = 1,
                             title = "title",  picurl = "picurl", url = "url"}
-            ok, err = chat:build(sndmsg)
+            ok, err = chat:reply(sndmsg)
             if not ok then
-                print("building message failed :" .. err)
-                return
+                print("replying message failed :" .. err)
             end
-
-            ngx.print(chat.stream)
         ';
     }
 --- raw_request eval
@@ -988,7 +970,7 @@ Connection: Keep-Alive\r\n\r\n".
 
 
 
-=== TEST 19: build news 2
+=== TEST 19: reply news 2
 --- http_config eval: $::HttpConfig
 --- config
     location /t {
@@ -1019,13 +1001,10 @@ Connection: Keep-Alive\r\n\r\n".
             local sndmsg = {msgtype = "news", articlecount = 2,
                             title = "title",  picurl = "picurl", url = "url",
                             title1 = "title1",  picurl1 = "picurl1", url1 = "url1"}
-            ok, err = chat:build(sndmsg)
+            ok, err = chat:reply(sndmsg)
             if not ok then
-                print("building message failed :" .. err)
-                return
+                print("replying message failed :" .. err)
             end
-
-            ngx.print(chat.stream)
         ';
     }
 --- raw_request eval
@@ -1069,7 +1048,7 @@ Connection: Keep-Alive\r\n\r\n".
 
 
 
-=== TEST 20: build news 3
+=== TEST 20: reply news 3
 --- http_config eval: $::HttpConfig
 --- config
     location /t {
@@ -1101,13 +1080,10 @@ Connection: Keep-Alive\r\n\r\n".
                             title = "title",  picurl = "picurl", url = "url",
                             title1 = "title1",  picurl1 = "picurl1", url1 = "url1",
                             title2 = "title2",  picurl2 = "picurl2", url2 = "url2"}
-            ok, err = chat:build(sndmsg)
+            ok, err = chat:reply(sndmsg)
             if not ok then
-                print("building message failed :" .. err)
-                return
+                print("replying message failed :" .. err)
             end
-
-            ngx.print(chat.stream)
         ';
     }
 --- raw_request eval
