@@ -32,9 +32,9 @@ __DATA__
             local chat = wechat:new(token)
             local ok, err
 
-            ok, err = chat:valid();
+            ok, err = chat:valid()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -68,9 +68,9 @@ Connection: Keep-Alive\r\n\r\n"]
             local chat = wechat:new(token)
             local ok, err
 
-            ok, err = chat:valid();
+            ok, err = chat:valid()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -78,9 +78,9 @@ Connection: Keep-Alive\r\n\r\n"]
                 ngx.print(chat.echostr)
             end
 
-            ok, err = chat:parse();
+            ok, err = chat:parse()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -128,9 +128,9 @@ msgtype=text
             local chat = wechat:new(token)
             local ok, err
 
-            ok, err = chat:valid();
+            ok, err = chat:valid()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -138,9 +138,9 @@ msgtype=text
                 ngx.print(chat.echostr)
             end
 
-            ok, err = chat:parse();
+            ok, err = chat:parse()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -190,9 +190,9 @@ msgtype=image
             local chat = wechat:new(token)
             local ok, err
 
-            ok, err = chat:valid();
+            ok, err = chat:valid()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -200,9 +200,9 @@ msgtype=image
                 ngx.print(chat.echostr)
             end
 
-            ok, err = chat:parse();
+            ok, err = chat:parse()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -254,9 +254,9 @@ msgtype=voice
             local chat = wechat:new(token)
             local ok, err
 
-            ok, err = chat:valid();
+            ok, err = chat:valid()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -264,9 +264,9 @@ msgtype=voice
                 ngx.print(chat.echostr)
             end
 
-            ok, err = chat:parse();
+            ok, err = chat:parse()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -316,9 +316,9 @@ msgtype=video
             local chat = wechat:new(token)
             local ok, err
 
-            ok, err = chat:valid();
+            ok, err = chat:valid()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -326,9 +326,9 @@ msgtype=video
                 ngx.print(chat.echostr)
             end
 
-            ok, err = chat:parse();
+            ok, err = chat:parse()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -382,9 +382,9 @@ location_y=120.000000
             local chat = wechat:new(token)
             local ok, err
 
-            ok, err = chat:valid();
+            ok, err = chat:valid()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -392,9 +392,9 @@ location_y=120.000000
                 ngx.print(chat.echostr)
             end
 
-            ok, err = chat:parse();
+            ok, err = chat:parse()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -446,9 +446,9 @@ msgtype=link
             local chat = wechat:new(token)
             local ok, err
 
-            ok, err = chat:valid();
+            ok, err = chat:valid()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -456,9 +456,9 @@ msgtype=link
                 ngx.print(chat.echostr)
             end
 
-            ok, err = chat:parse();
+            ok, err = chat:parse()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -506,9 +506,9 @@ msgtype=event
             local chat = wechat:new(token)
             local ok, err
 
-            ok, err = chat:valid();
+            ok, err = chat:valid()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -516,9 +516,9 @@ msgtype=event
                 ngx.print(chat.echostr)
             end
 
-            ok, err = chat:parse();
+            ok, err = chat:parse()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -566,9 +566,9 @@ msgtype=event
             local chat = wechat:new(token)
             local ok, err
 
-            ok, err = chat:valid();
+            ok, err = chat:valid()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -577,17 +577,17 @@ msgtype=event
                 return
             end
 
-            ok, err = chat:parse();
+            ok, err = chat:parse()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
             local rcvmsg = chat.rcvmsg
             local sndmsg = {msgtype = "text", content = rcvmsg.content}
-            ok, err = chat:build(sndmsg);
+            ok, err = chat:build(sndmsg)
             if not ok then
-                print("building message failed :" .. err);
+                print("building message failed :" .. err)
                 return
             end
 
@@ -633,9 +633,9 @@ Connection: Keep-Alive\r\n\r\n".
             local chat = wechat:new(token)
             local ok, err
 
-            ok, err = chat:valid();
+            ok, err = chat:valid()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -644,17 +644,17 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            ok, err = chat:parse();
+            ok, err = chat:parse()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
             local rcvmsg = chat.rcvmsg
             local sndmsg = {msgtype = "image", mediaid = rcvmsg.mediaid}
-            ok, err = chat:build(sndmsg);
+            ok, err = chat:build(sndmsg)
             if not ok then
-                print("building message failed :" .. err);
+                print("building message failed :" .. err)
                 return
             end
 
@@ -703,9 +703,9 @@ Connection: Keep-Alive\r\n\r\n".
             local chat = wechat:new(token)
             local ok, err
 
-            ok, err = chat:valid();
+            ok, err = chat:valid()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -714,17 +714,17 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            ok, err = chat:parse();
+            ok, err = chat:parse()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
             local rcvmsg = chat.rcvmsg
             local sndmsg = {msgtype = "voice", mediaid = rcvmsg.mediaid}
-            ok, err = chat:build(sndmsg);
+            ok, err = chat:build(sndmsg)
             if not ok then
-                print("building message failed :" .. err);
+                print("building message failed :" .. err)
                 return
             end
 
@@ -774,9 +774,9 @@ Connection: Keep-Alive\r\n\r\n".
             local chat = wechat:new(token)
             local ok, err
 
-            ok, err = chat:valid();
+            ok, err = chat:valid()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -785,9 +785,9 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            ok, err = chat:parse();
+            ok, err = chat:parse()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -796,9 +796,9 @@ Connection: Keep-Alive\r\n\r\n".
                             mediaid = "cLoswtrpaMwdEfYRChivdajclcZULGMJ0J8a9M8W5_3tltrV23qkBm2sNanZIbwU",
                             title = "title",
                             description = "description"}
-            ok, err = chat:build(sndmsg);
+            ok, err = chat:build(sndmsg)
             if not ok then
-                print("building message failed :" .. err);
+                print("building message failed :" .. err)
                 return
             end
 
@@ -846,9 +846,9 @@ Connection: Keep-Alive\r\n\r\n".
             local chat = wechat:new(token)
             local ok, err
 
-            ok, err = chat:valid();
+            ok, err = chat:valid()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -857,9 +857,9 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            ok, err = chat:parse();
+            ok, err = chat:parse()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -868,9 +868,9 @@ Connection: Keep-Alive\r\n\r\n".
                             description = "description",
                             musicurl = "http://mp3.com/test.mp3",
                             hqmusicurl = "http://mp3.com/test.mp3"}
-            ok, err = chat:build(sndmsg);
+            ok, err = chat:build(sndmsg)
             if not ok then
-                print("building message failed :" .. err);
+                print("building message failed :" .. err)
                 return
             end
 
@@ -923,9 +923,9 @@ Connection: Keep-Alive\r\n\r\n".
             local chat = wechat:new(token)
             local ok, err
 
-            ok, err = chat:valid();
+            ok, err = chat:valid()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -934,18 +934,18 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            ok, err = chat:parse();
+            ok, err = chat:parse()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
             local rcvmsg = chat.rcvmsg
             local sndmsg = {msgtype = "news", articlecount = 1,
                             title = "title",  picurl = "picurl", url = "url"}
-            ok, err = chat:build(sndmsg);
+            ok, err = chat:build(sndmsg)
             if not ok then
-                print("building message failed :" .. err);
+                print("building message failed :" .. err)
                 return
             end
 
@@ -998,9 +998,9 @@ Connection: Keep-Alive\r\n\r\n".
             local chat = wechat:new(token)
             local ok, err
 
-            ok, err = chat:valid();
+            ok, err = chat:valid()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -1009,9 +1009,9 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            ok, err = chat:parse();
+            ok, err = chat:parse()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -1019,9 +1019,9 @@ Connection: Keep-Alive\r\n\r\n".
             local sndmsg = {msgtype = "news", articlecount = 2,
                             title = "title",  picurl = "picurl", url = "url",
                             title1 = "title1",  picurl1 = "picurl1", url1 = "url1"}
-            ok, err = chat:build(sndmsg);
+            ok, err = chat:build(sndmsg)
             if not ok then
-                print("building message failed :" .. err);
+                print("building message failed :" .. err)
                 return
             end
 
@@ -1079,9 +1079,9 @@ Connection: Keep-Alive\r\n\r\n".
             local chat = wechat:new(token)
             local ok, err
 
-            ok, err = chat:valid();
+            ok, err = chat:valid()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -1090,9 +1090,9 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            ok, err = chat:parse();
+            ok, err = chat:parse()
             if not ok then
-                print(err);
+                print(err)
                 return
             end
 
@@ -1101,9 +1101,9 @@ Connection: Keep-Alive\r\n\r\n".
                             title = "title",  picurl = "picurl", url = "url",
                             title1 = "title1",  picurl1 = "picurl1", url1 = "url1",
                             title2 = "title2",  picurl2 = "picurl2", url2 = "url2"}
-            ok, err = chat:build(sndmsg);
+            ok, err = chat:build(sndmsg)
             if not ok then
-                print("building message failed :" .. err);
+                print("building message failed :" .. err)
                 return
             end
 
