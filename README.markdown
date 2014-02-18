@@ -30,24 +30,31 @@ Synopsis
         location /test {
             content_by_lua '
                 local wechat = require "resty.wechat"
-                local token = "acayf"
+                local ok, err, rcvmsg
+                local token = "acayf" --填入开发者在微信官网填写的token
                 local chat = wechat:new(token)
 
-                local ok, err = chat:valid();
+                ok, err = chat:valid() --验证消息可靠性
                 if not ok then
-                    print(err);
+                    print("failed to valid message :" .. err)
                     return
                 end
 
-                if chat.method == "GET" then
-                    ngx.say(chat.echostr)
+                if chat.method == "GET" then --微信第一次验证开发者URL
+                    ngx.print(chat.echostr)
                     return
                 end
 
-                local ok, err = chat:parse();
-                if not ok then
-                    print(err);
+                rcvmsg, err = chat:parse() --解析出开发者收到的消息
+                if err then
+                    print("failed to parse message :" .. err)
                     return
+                end
+
+                --回复开发者自定义消息
+                ok, err = chat:reply({msgtype = "text", content = "hello world!"})
+                if not ok then
+                    print("failed to reply message :" .. err)
                 end
             ';
         }
