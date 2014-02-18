@@ -34,7 +34,7 @@ __DATA__
 
             ok, err = chat:valid()
             if not ok then
-                print(err)
+                print("failed to valid message :" .. err)
                 return
             end
 
@@ -70,7 +70,7 @@ Connection: Keep-Alive\r\n\r\n"]
 
             ok, err = chat:valid()
             if not ok then
-                print(err)
+                print("failed to valid message :" .. err)
                 return
             end
 
@@ -80,7 +80,7 @@ Connection: Keep-Alive\r\n\r\n"]
 
             ok, err = chat:parse()
             if not ok then
-                print(err)
+                print("failed to parse message :" .. err)
                 return
             end
 
@@ -130,7 +130,7 @@ msgtype=text
 
             ok, err = chat:valid()
             if not ok then
-                print(err)
+                print("failed to valid message :" .. err)
                 return
             end
 
@@ -140,7 +140,7 @@ msgtype=text
 
             ok, err = chat:parse()
             if not ok then
-                print(err)
+                print("failed to parse message :" .. err)
                 return
             end
 
@@ -192,7 +192,7 @@ msgtype=image
 
             ok, err = chat:valid()
             if not ok then
-                print(err)
+                print("failed to valid message :" .. err)
                 return
             end
 
@@ -202,7 +202,7 @@ msgtype=image
 
             ok, err = chat:parse()
             if not ok then
-                print(err)
+                print("failed to parse message :" .. err)
                 return
             end
 
@@ -256,7 +256,7 @@ msgtype=voice
 
             ok, err = chat:valid()
             if not ok then
-                print(err)
+                print("failed to valid message :" .. err)
                 return
             end
 
@@ -266,7 +266,7 @@ msgtype=voice
 
             ok, err = chat:parse()
             if not ok then
-                print(err)
+                print("failed to parse message :" .. err)
                 return
             end
 
@@ -318,7 +318,7 @@ msgtype=video
 
             ok, err = chat:valid()
             if not ok then
-                print(err)
+                print("failed to valid message :" .. err)
                 return
             end
 
@@ -328,7 +328,7 @@ msgtype=video
 
             ok, err = chat:parse()
             if not ok then
-                print(err)
+                print("failed to parse message :" .. err)
                 return
             end
 
@@ -384,7 +384,7 @@ location_y=120.000000
 
             ok, err = chat:valid()
             if not ok then
-                print(err)
+                print("failed to valid message :" .. err)
                 return
             end
 
@@ -394,7 +394,7 @@ location_y=120.000000
 
             ok, err = chat:parse()
             if not ok then
-                print(err)
+                print("failed to parse message :" .. err)
                 return
             end
 
@@ -448,7 +448,7 @@ msgtype=link
 
             ok, err = chat:valid()
             if not ok then
-                print(err)
+                print("failed to valid message :" .. err)
                 return
             end
 
@@ -458,7 +458,7 @@ msgtype=link
 
             ok, err = chat:parse()
             if not ok then
-                print(err)
+                print("failed to parse message :" .. err)
                 return
             end
 
@@ -508,7 +508,7 @@ msgtype=event
 
             ok, err = chat:valid()
             if not ok then
-                print(err)
+                print("failed to valid message :" .. err)
                 return
             end
 
@@ -518,7 +518,7 @@ msgtype=event
 
             ok, err = chat:parse()
             if not ok then
-                print(err)
+                print("failed to parse message :" .. err)
                 return
             end
 
@@ -568,7 +568,7 @@ msgtype=event
 
             ok, err = chat:valid()
             if not ok then
-                print(err)
+                print("failed to valid message :" .. err)
                 return
             end
 
@@ -579,7 +579,7 @@ msgtype=event
 
             ok, err = chat:parse()
             if not ok then
-                print(err)
+                print("failed to parse message :" .. err)
                 return
             end
 
@@ -587,7 +587,7 @@ msgtype=event
             local sndmsg = {msgtype = "text", content = rcvmsg.content}
             ok, err = chat:reply(sndmsg)
             if not ok then
-                print("replying message failed :" .. err)
+                print("failed to reply message :" .. err)
             end
         ';
     }
@@ -632,7 +632,7 @@ Connection: Keep-Alive\r\n\r\n".
 
             ok, err = chat:valid()
             if not ok then
-                print(err)
+                print("failed to valid message :" .. err)
                 return
             end
 
@@ -643,7 +643,7 @@ Connection: Keep-Alive\r\n\r\n".
 
             ok, err = chat:parse()
             if not ok then
-                print(err)
+                print("failed to parse message :" .. err)
                 return
             end
 
@@ -651,7 +651,7 @@ Connection: Keep-Alive\r\n\r\n".
             local sndmsg = {msgtype = "image", mediaid = rcvmsg.mediaid}
             ok, err = chat:reply(sndmsg)
             if not ok then
-                print("replying message failed :" .. err)
+                print("failed to reply message :" .. err)
             end
         ';
     }
@@ -699,7 +699,7 @@ Connection: Keep-Alive\r\n\r\n".
 
             ok, err = chat:valid()
             if not ok then
-                print(err)
+                print("failed to valid message :" .. err)
                 return
             end
 
@@ -710,7 +710,7 @@ Connection: Keep-Alive\r\n\r\n".
 
             ok, err = chat:parse()
             if not ok then
-                print(err)
+                print("failed to parse message :" .. err)
                 return
             end
 
@@ -718,7 +718,7 @@ Connection: Keep-Alive\r\n\r\n".
             local sndmsg = {msgtype = "voice", mediaid = rcvmsg.mediaid}
             ok, err = chat:reply(sndmsg)
             if not ok then
-                print("replying message failed :" .. err)
+                print("failed to reply message :" .. err)
             end
         ';
     }
@@ -767,7 +767,7 @@ Connection: Keep-Alive\r\n\r\n".
 
             ok, err = chat:valid()
             if not ok then
-                print(err)
+                print("failed to valid message :" .. err)
                 return
             end
 
@@ -778,7 +778,7 @@ Connection: Keep-Alive\r\n\r\n".
 
             ok, err = chat:parse()
             if not ok then
-                print(err)
+                print("failed to parse message :" .. err)
                 return
             end
 
@@ -789,7 +789,7 @@ Connection: Keep-Alive\r\n\r\n".
                             description = "description"}
             ok, err = chat:reply(sndmsg)
             if not ok then
-                print("replying message failed :" .. err)
+                print("failed to reply message :" .. err)
             end
         ';
     }
@@ -823,6 +823,9 @@ Connection: Keep-Alive\r\n\r\n".
 </Video>
 </xml>
 --- no_error_log
+
+
+
 [error]
 === TEST 17: reply music
 --- http_config eval: $::HttpConfig
@@ -836,7 +839,7 @@ Connection: Keep-Alive\r\n\r\n".
 
             ok, err = chat:valid()
             if not ok then
-                print(err)
+                print("failed to valid message :" .. err)
                 return
             end
 
@@ -847,7 +850,7 @@ Connection: Keep-Alive\r\n\r\n".
 
             ok, err = chat:parse()
             if not ok then
-                print(err)
+                print("failed to parse message :" .. err)
                 return
             end
 
@@ -858,7 +861,7 @@ Connection: Keep-Alive\r\n\r\n".
                             hqmusicurl = "http://mp3.com/test.mp3"}
             ok, err = chat:reply(sndmsg)
             if not ok then
-                print("replying message failed :" .. err)
+                print("failed to reply message :" .. err)
             end
         ';
     }
@@ -910,7 +913,7 @@ Connection: Keep-Alive\r\n\r\n".
 
             ok, err = chat:valid()
             if not ok then
-                print(err)
+                print("failed to valid message :" .. err)
                 return
             end
 
@@ -921,7 +924,7 @@ Connection: Keep-Alive\r\n\r\n".
 
             ok, err = chat:parse()
             if not ok then
-                print(err)
+                print("failed to parse message :" .. err)
                 return
             end
 
@@ -930,7 +933,7 @@ Connection: Keep-Alive\r\n\r\n".
                             title = "title",  picurl = "picurl", url = "url"}
             ok, err = chat:reply(sndmsg)
             if not ok then
-                print("replying message failed :" .. err)
+                print("failed to reply message :" .. err)
             end
         ';
     }
@@ -982,7 +985,7 @@ Connection: Keep-Alive\r\n\r\n".
 
             ok, err = chat:valid()
             if not ok then
-                print(err)
+                print("failed to valid message :" .. err)
                 return
             end
 
@@ -993,7 +996,7 @@ Connection: Keep-Alive\r\n\r\n".
 
             ok, err = chat:parse()
             if not ok then
-                print(err)
+                print("failed to parse message :" .. err)
                 return
             end
 
@@ -1003,7 +1006,7 @@ Connection: Keep-Alive\r\n\r\n".
                             title1 = "title1",  picurl1 = "picurl1", url1 = "url1"}
             ok, err = chat:reply(sndmsg)
             if not ok then
-                print("replying message failed :" .. err)
+                print("failed to reply message :" .. err)
             end
         ';
     }
@@ -1060,7 +1063,7 @@ Connection: Keep-Alive\r\n\r\n".
 
             ok, err = chat:valid()
             if not ok then
-                print(err)
+                print("failed to valid message :" .. err)
                 return
             end
 
@@ -1071,7 +1074,7 @@ Connection: Keep-Alive\r\n\r\n".
 
             ok, err = chat:parse()
             if not ok then
-                print(err)
+                print("failed to parse message :" .. err)
                 return
             end
 
@@ -1082,7 +1085,7 @@ Connection: Keep-Alive\r\n\r\n".
                             title2 = "title2",  picurl2 = "picurl2", url2 = "url2"}
             ok, err = chat:reply(sndmsg)
             if not ok then
-                print("replying message failed :" .. err)
+                print("failed to reply message :" .. err)
             end
         ';
     }

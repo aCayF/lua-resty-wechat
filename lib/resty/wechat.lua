@@ -321,7 +321,7 @@ local function _parse_key(nodePtr, key, rcvmsg)
 
     if lower(name) ~= k then -- case insensitive
         if not optional then
-            return nil, "invalid node name"
+            return nil, "invalid node name -- " .. name
         else
             return true
         end
@@ -372,7 +372,7 @@ local function _retrieve_keytable(nodePtr, key, rcvmsg)
 
     while true do
         if not root[key] then
-            return nil, "invalid key"
+            return nil, "invalid key -- " .. key
         end
 
         -- indicates that no subkeys present
@@ -399,11 +399,11 @@ local function _parse_xml(node, rcvmsg)
     -- element node named xml is expected
     if node[0].type ~= lib.XML_ELEMENT_NODE
        or ffi_str(node[0].name) ~= "xml" then
-        return nil, "parsing xml failed :invalid xml title"
+        return nil, "invalid xml title when parsing xml"
     end
 
     if node[0].children == nil then
-        return nil, "parsing xml failed :invalid xml content"
+        return nil, "invalid xml content when parsing xml"
     end
 
     -- parse common components
@@ -412,19 +412,19 @@ local function _parse_xml(node, rcvmsg)
 
     ok, err = _parse_keytable(nodePtr, keytable, rcvmsg)
     if not ok then
-        return nil, "common parsing failed :" .. err
+        return nil,  err .. "when parsing common part"
     end
 
     -- retrieve msgtype-specific keytable
     keytable, err = _retrieve_keytable(nodePtr, rcvmsg.msgtype, rcvmsg)
     if err then
-        return nil, "retrieving keytable failed :" .. err
+        return nil, err .. "when retrieving keytable"
     end
 
     -- parse msgtype-specific components
     ok, err = _parse_keytable(nodePtr, keytable, rcvmsg)
     if not ok then
-        return nil, "msgtype-specific parsing failed :" .. err
+        return nil, err .. "when parsing msgtype-specific part"
     end
 
     return true
