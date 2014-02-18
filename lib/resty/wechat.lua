@@ -458,7 +458,7 @@ function _M.parse(self)
         return nil, err
     end
 
-    return true
+    return rcvmsg
 end
 
 
