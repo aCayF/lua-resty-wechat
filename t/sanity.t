@@ -66,7 +66,7 @@ Connection: Keep-Alive\r\n\r\n"]
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
-            local ok, err
+            local ok, err, rcvmsg
 
             ok, err = chat:valid()
             if not ok then
@@ -78,13 +78,13 @@ Connection: Keep-Alive\r\n\r\n"]
                 ngx.print(chat.echostr)
             end
 
-            ok, err = chat:parse()
-            if not ok then
+            rcvmsg, err = chat:parse()
+            if err then
                 print("failed to parse message :" .. err)
                 return
             end
 
-            for k, v in pairs(chat.rcvmsg) do
+            for k, v in pairs(rcvmsg) do
                 ngx.say(k, "=", v)
             end
         ';
@@ -126,7 +126,7 @@ msgtype=text
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
-            local ok, err
+            local ok, err, rcvmsg
 
             ok, err = chat:valid()
             if not ok then
@@ -138,13 +138,13 @@ msgtype=text
                 ngx.print(chat.echostr)
             end
 
-            ok, err = chat:parse()
-            if not ok then
+            rcvmsg, err = chat:parse()
+            if err then
                 print("failed to parse message :" .. err)
                 return
             end
 
-            for k, v in pairs(chat.rcvmsg) do
+            for k, v in pairs(rcvmsg) do
                 ngx.say(k, "=", v)
             end
         ';
@@ -188,7 +188,7 @@ msgtype=image
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
-            local ok, err
+            local ok, err, rcvmsg
 
             ok, err = chat:valid()
             if not ok then
@@ -200,13 +200,13 @@ msgtype=image
                 ngx.print(chat.echostr)
             end
 
-            ok, err = chat:parse()
-            if not ok then
+            rcvmsg, err = chat:parse()
+            if err then
                 print("failed to parse message :" .. err)
                 return
             end
 
-            for k, v in pairs(chat.rcvmsg) do
+            for k, v in pairs(rcvmsg) do
                 ngx.say(k, "=", v)
             end
         ';
@@ -252,7 +252,7 @@ msgtype=voice
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
-            local ok, err
+            local ok, err, rcvmsg
 
             ok, err = chat:valid()
             if not ok then
@@ -264,13 +264,13 @@ msgtype=voice
                 ngx.print(chat.echostr)
             end
 
-            ok, err = chat:parse()
-            if not ok then
+            rcvmsg, err = chat:parse()
+            if err then
                 print("failed to parse message :" .. err)
                 return
             end
 
-            for k, v in pairs(chat.rcvmsg) do
+            for k, v in pairs(rcvmsg) do
                 ngx.say(k, "=", v)
             end
         ';
@@ -314,7 +314,7 @@ msgtype=video
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
-            local ok, err
+            local ok, err, rcvmsg
 
             ok, err = chat:valid()
             if not ok then
@@ -326,13 +326,13 @@ msgtype=video
                 ngx.print(chat.echostr)
             end
 
-            ok, err = chat:parse()
-            if not ok then
+            rcvmsg, err = chat:parse()
+            if err then
                 print("failed to parse message :" .. err)
                 return
             end
 
-            for k, v in pairs(chat.rcvmsg) do
+            for k, v in pairs(rcvmsg) do
                 ngx.say(k, "=", v)
             end
         ';
@@ -380,7 +380,7 @@ location_y=120.000000
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
-            local ok, err
+            local ok, err, rcvmsg
 
             ok, err = chat:valid()
             if not ok then
@@ -392,13 +392,13 @@ location_y=120.000000
                 ngx.print(chat.echostr)
             end
 
-            ok, err = chat:parse()
-            if not ok then
+            rcvmsg, err = chat:parse()
+            if err then
                 print("failed to parse message :" .. err)
                 return
             end
 
-            for k, v in pairs(chat.rcvmsg) do
+            for k, v in pairs(rcvmsg) do
                 ngx.say(k, "=", v)
             end
         ';
@@ -444,7 +444,7 @@ msgtype=link
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
-            local ok, err
+            local ok, err, rcvmsg
 
             ok, err = chat:valid()
             if not ok then
@@ -456,13 +456,13 @@ msgtype=link
                 ngx.print(chat.echostr)
             end
 
-            ok, err = chat:parse()
-            if not ok then
+            rcvmsg, err = chat:parse()
+            if err then
                 print("failed to parse message :" .. err)
                 return
             end
 
-            for k, v in pairs(chat.rcvmsg) do
+            for k, v in pairs(rcvmsg) do
                 ngx.say(k, "=", v)
             end
         ';
@@ -504,7 +504,7 @@ msgtype=event
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
-            local ok, err
+            local ok, err, rcvmsg
 
             ok, err = chat:valid()
             if not ok then
@@ -516,13 +516,13 @@ msgtype=event
                 ngx.print(chat.echostr)
             end
 
-            ok, err = chat:parse()
-            if not ok then
+            rcvmsg, err = chat:parse()
+            if err then
                 print("failed to parse message :" .. err)
                 return
             end
 
-            for k, v in pairs(chat.rcvmsg) do
+            for k, v in pairs(rcvmsg) do
                 ngx.say(k, "=", v)
             end
         ';
@@ -564,7 +564,7 @@ msgtype=event
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
-            local ok, err
+            local ok, err, rcvmsg
 
             ok, err = chat:valid()
             if not ok then
@@ -577,15 +577,13 @@ msgtype=event
                 return
             end
 
-            ok, err = chat:parse()
-            if not ok then
+            rcvmsg, err = chat:parse()
+            if err then
                 print("failed to parse message :" .. err)
                 return
             end
 
-            local rcvmsg = chat.rcvmsg
-            local sndmsg = {msgtype = "text", content = rcvmsg.content}
-            ok, err = chat:reply(sndmsg)
+            ok, err = chat:reply({msgtype = "text", content = rcvmsg.content})
             if not ok then
                 print("failed to reply message :" .. err)
             end
@@ -628,7 +626,7 @@ Connection: Keep-Alive\r\n\r\n".
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
-            local ok, err
+            local ok, err, rcvmsg
 
             ok, err = chat:valid()
             if not ok then
@@ -641,15 +639,13 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            ok, err = chat:parse()
-            if not ok then
+            rcvmsg, err = chat:parse()
+            if err then
                 print("failed to parse message :" .. err)
                 return
             end
 
-            local rcvmsg = chat.rcvmsg
-            local sndmsg = {msgtype = "image", mediaid = rcvmsg.mediaid}
-            ok, err = chat:reply(sndmsg)
+            ok, err = chat:reply({msgtype = "image", mediaid = rcvmsg.mediaid})
             if not ok then
                 print("failed to reply message :" .. err)
             end
@@ -695,7 +691,7 @@ Connection: Keep-Alive\r\n\r\n".
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
-            local ok, err
+            local ok, err, rcvmsg
 
             ok, err = chat:valid()
             if not ok then
@@ -708,15 +704,13 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            ok, err = chat:parse()
-            if not ok then
+            rcvmsg, err = chat:parse()
+            if err then
                 print("failed to parse message :" .. err)
                 return
             end
 
-            local rcvmsg = chat.rcvmsg
-            local sndmsg = {msgtype = "voice", mediaid = rcvmsg.mediaid}
-            ok, err = chat:reply(sndmsg)
+            ok, err = chat:reply({msgtype = "voice", mediaid = rcvmsg.mediaid})
             if not ok then
                 print("failed to reply message :" .. err)
             end
@@ -763,7 +757,7 @@ Connection: Keep-Alive\r\n\r\n".
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
-            local ok, err
+            local ok, err, rcvmsg
 
             ok, err = chat:valid()
             if not ok then
@@ -776,18 +770,16 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            ok, err = chat:parse()
-            if not ok then
+            rcvmsg, err = chat:parse()
+            if err then
                 print("failed to parse message :" .. err)
                 return
             end
 
-            local rcvmsg = chat.rcvmsg
-            local sndmsg = {msgtype = "video",
-                            mediaid = "cLoswtrpaMwdEfYRChivdajclcZULGMJ0J8a9M8W5_3tltrV23qkBm2sNanZIbwU",
-                            title = "title",
-                            description = "description"}
-            ok, err = chat:reply(sndmsg)
+            ok, err = chat:reply({msgtype = "video",
+                                  mediaid = "cLoswtrpaMwdEfYRChivdajclcZULGMJ0J8a9M8W5_3tltrV23qkBm2sNanZIbwU",
+                                  title = "title",
+                                  description = "description"})
             if not ok then
                 print("failed to reply message :" .. err)
             end
@@ -835,7 +827,7 @@ Connection: Keep-Alive\r\n\r\n".
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
-            local ok, err
+            local ok, err, rcvmsg
 
             ok, err = chat:valid()
             if not ok then
@@ -848,18 +840,16 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            ok, err = chat:parse()
-            if not ok then
+            rcvmsg, err = chat:parse()
+            if err then
                 print("failed to parse message :" .. err)
                 return
             end
 
-            local rcvmsg = chat.rcvmsg
-            local sndmsg = {msgtype = "music", title = "title",
-                            description = "description",
-                            musicurl = "http://mp3.com/test.mp3",
-                            hqmusicurl = "http://mp3.com/test.mp3"}
-            ok, err = chat:reply(sndmsg)
+            ok, err = chat:reply({msgtype = "music", title = "title",
+                                  description = "description",
+                                  musicurl = "http://mp3.com/test.mp3",
+                                  hqmusicurl = "http://mp3.com/test.mp3"})
             if not ok then
                 print("failed to reply message :" .. err)
             end
@@ -909,7 +899,7 @@ Connection: Keep-Alive\r\n\r\n".
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
-            local ok, err
+            local ok, err, rcvmsg
 
             ok, err = chat:valid()
             if not ok then
@@ -922,16 +912,14 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            ok, err = chat:parse()
-            if not ok then
+            rcvmsg, err = chat:parse()
+            if err then
                 print("failed to parse message :" .. err)
                 return
             end
 
-            local rcvmsg = chat.rcvmsg
-            local sndmsg = {msgtype = "news", articlecount = 1,
-                            title = "title",  picurl = "picurl", url = "url"}
-            ok, err = chat:reply(sndmsg)
+            ok, err = chat:reply({msgtype = "news", articlecount = 1,
+                                  title = "title",  picurl = "picurl", url = "url"})
             if not ok then
                 print("failed to reply message :" .. err)
             end
@@ -981,7 +969,7 @@ Connection: Keep-Alive\r\n\r\n".
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
-            local ok, err
+            local ok, err, rcvmsg
 
             ok, err = chat:valid()
             if not ok then
@@ -994,17 +982,15 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            ok, err = chat:parse()
-            if not ok then
+            rcvmsg, err = chat:parse()
+            if err then
                 print("failed to parse message :" .. err)
                 return
             end
 
-            local rcvmsg = chat.rcvmsg
-            local sndmsg = {msgtype = "news", articlecount = 2,
-                            title = "title",  picurl = "picurl", url = "url",
-                            title1 = "title1",  picurl1 = "picurl1", url1 = "url1"}
-            ok, err = chat:reply(sndmsg)
+            ok, err = chat:reply({msgtype = "news", articlecount = 2,
+                                  title = "title",  picurl = "picurl", url = "url",
+                                  title1 = "title1",  picurl1 = "picurl1", url1 = "url1"})
             if not ok then
                 print("failed to reply message :" .. err)
             end
@@ -1059,7 +1045,7 @@ Connection: Keep-Alive\r\n\r\n".
             local wechat = require "resty.wechat"
             local token = "acayf"
             local chat = wechat:new(token)
-            local ok, err
+            local ok, err, rcvmsg
 
             ok, err = chat:valid()
             if not ok then
@@ -1072,18 +1058,16 @@ Connection: Keep-Alive\r\n\r\n".
                 return
             end
 
-            ok, err = chat:parse()
-            if not ok then
+            rcvmsg, err = chat:parse()
+            if err then
                 print("failed to parse message :" .. err)
                 return
             end
 
-            local rcvmsg = chat.rcvmsg
-            local sndmsg = {msgtype = "news", articlecount = 3,
-                            title = "title",  picurl = "picurl", url = "url",
-                            title1 = "title1",  picurl1 = "picurl1", url1 = "url1",
-                            title2 = "title2",  picurl2 = "picurl2", url2 = "url2"}
-            ok, err = chat:reply(sndmsg)
+            ok, err = chat:reply({msgtype = "news", articlecount = 3,
+                                  title = "title",  picurl = "picurl", url = "url",
+                                  title1 = "title1",  picurl1 = "picurl1", url1 = "url1",
+                                  title2 = "title2",  picurl2 = "picurl2", url2 = "url2"})
             if not ok then
                 print("failed to reply message :" .. err)
             end
