@@ -21,7 +21,7 @@ local ngx_print = ngx.print
 local ngx_flush = ngx.flush
 
 
-local _M = { _VERSION = '0.0.1' }
+local _M = { _VERSION = '0.1.0' }
 
 ffi.cdef[[
 typedef unsigned char u_char;
