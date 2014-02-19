@@ -60,6 +60,11 @@ Synopsis
         }
     }
 ```
+备注：
+
+token在[微信平台上申请](http://mp.weixin.qq.com/cgi-bin/callbackprofile?type=info&t=wxm-developer-ahead&lang=zh_CN)
+
+开发者接收到的消息格式和自定义的发送消息格式都在[微信公众平台开发者文档](http://mp.weixin.qq.com/wiki/index.php?title=%E9%A6%96%E9%A1%B5)中有详细描述
 
 TODO
 ====
