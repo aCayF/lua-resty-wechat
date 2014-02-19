@@ -11,7 +11,7 @@ Status
 Description
 ===========
 
-微信公众平台lua开发包,细化各项接口操作
+微信公众平台lua开发包,基于web服务器[nginx](http://nginx.org/)以及相应的一些扩展和第三方库
 
 Requirements
 ========
